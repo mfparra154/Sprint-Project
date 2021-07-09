@@ -6,7 +6,10 @@ const swaggerUI = require("swagger-ui-express");
 const swaggeroptions = require("./utils/swaggeroptions");
 
 const basicAuth = require('express-basic-auth');
+
+console.log("abscd");
 const verificacion = require("./middlewares/verificacion.middleware");
+console.log("absc");
 const rutaProductos = require("./routes/productos.route");
 const rutaPagos = require("./routes/pagos.route");
 const rutaPedidos = require("./routes/pedidos.route");
@@ -28,6 +31,7 @@ app.use('/productos',rutaProductos);
 app.use('/pagos',rutaPagos);
 app.use('/pedidos',rutaPedidos);
 
+console.log("Mafe");
 
 
 

@@ -13,6 +13,16 @@ const Usuarios = [
         telefono: "3182612440",
         direccion: "Dabeiba",
         admin: true
+    },
+    {
+        id:2,
+        email: "mf.parra154@gmail.com" ,
+        contrasena: "12345678",
+        nombre: "Mafe",
+        usuario: "Mafe",
+        telefono: "555555",
+        direccion: "Girardot",
+        admin: false
     }
     ];
 

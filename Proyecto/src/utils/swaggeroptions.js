@@ -19,6 +19,9 @@ const swaggeroptions = {
                     scheme: "basic"
                 }
             },
+            security: [{
+                basicAuth: []
+            }],
             schemas: {
                 Usuario:
                 {
@@ -78,6 +81,8 @@ const swaggeroptions = {
                         },
                         productos: {
                             type: "array",
+                            items: 
+                            {$ref: '#/components/schemas/Pedidos'}
                         },
                         email: {
                             type: "string"
@@ -85,12 +90,12 @@ const swaggeroptions = {
                         direccion: {
                             type: "string"
                         },
-                        medioPago:{
-                            type: "string"
-                        },
-                        precioTotal:{
-                            type: "number"
-                        }
+                        //medioPago:{
+                           // type: "string"
+                       // },
+                        //precioTotal:{
+                        //    type: "number"
+                       // }
 
 
                     }
@@ -98,10 +103,6 @@ const swaggeroptions = {
 
             }
         },
-        security: [{
-            basicAuth: []
-        }],
-
         tags: [{
             name: "Usuarios",
             description: "Ruta de registro y login de usuarios",
@@ -654,12 +655,11 @@ const swaggeroptions = {
                                 examples: {
                                     "ejemplo 1": {
                                         value: {
-                                            id: "12",
-                                            productos: "[{ }]",
-                                            email: "mariafernandaparratoro@gmail.com",
-                                            direccion: "Dabeiba",
-                                            medioPago: "efectivo",
-                                            precioTotal: "400"
+                                            id: "2",
+                                            productosPedido: [{id: 1,
+                                                        cantidad:"3" },
+                                                 {id: 3, "cantidad":"1"
+                                                 }]
 
                                         }
                                     }
@@ -669,40 +669,11 @@ const swaggeroptions = {
                     },
                     
                     responses: {
-                        "201": {
-                            description: "Usuario creado",
-                            content: {
-                                "application/json": {
-                                    schema: {
-                                        type: "object",
-                                        properties: {
-                                            mensaje: {
-                                                type: "string"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-
-
+                        "200": {
+                            description: "Pedido agregado",
                         },
-                        "400": {
-                            description: "Credenciales incorrectas",
-                            content: {
-                                "application/json": {
-                                    schema: {
-                                        type: "object",
-                                        properties: {
-                                            err: {
-                                                type: "string"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-
+                        "401": {
+                            description: "Solo disponible para usuarios logueados",
 
                         }
 
@@ -711,7 +682,71 @@ const swaggeroptions = {
 
  
                 }
-            }
+            },
+            "/pedidos/actualizar":{
+                put:{
+                    tags: ["Pedidos"],
+                    summary: "Modificacion del pedido por parte del usuario",
+                    description: "Modificacion del pedido por parte del usuario",
+                    requestBody: {
+                        description: "datos del pedido",
+                        required: "true",
+                        content: {
+                            "application/json": {
+                                schema: {
+                                    $ref: '#/components/schemas/Pedidos'
+                                },
+                                examples: {
+                                    "ejemplo 1": {
+                                        value: {
+                                            productos: [
+                                                {
+                                                    id:1,
+                                                    cantidad:4
+                                                    
+                                                },
+                                                {
+                                                    id:3,
+                                                     cantidad:4
+                                                }
+                                            ],
+                                            direccion:"Ricarte Apto Jairo",
+                                            idMedioPago:"1"
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    responses: {
+                        "200": {
+                            description: "Pedido actualizado",
+                        },
+                        "400": {
+                            description: "Datos incorrectos",
+
+                        },
+                        "404": {
+                            description: "Pedido no encontrado",
+
+                        },
+                        "401": {
+                            description: "No esta autorizado",
+
+                        },
+                        "403": {
+                            description: "No tiene los permisos",
+                        }
+                    }
+                }
+
+            }, 
+            //"/pedidos/{id}/estado"{
+           //     put:{
+
+          //      }
+           // }
 
 
 

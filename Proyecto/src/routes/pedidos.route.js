@@ -30,13 +30,17 @@ router.get('/mipedido',(req,res) =>{
 //agregarpedido,  
 router.post('/crear', (req,res) =>{
     const {productos}=req.body;
+    console.log(req.body);
     const usuario = req.auth.user
+    console.log(req.auth.user);
     const infoUsuario = usuarioUsuarios(usuario);
     const {id,email,direccion} = infoUsuario;
     const productosPedido = modificarListaProductos(productos);
     agregarPedidos(id,productosPedido,email,direccion,"efectivo","Pendiente",precioTotal(productosPedido));
     res.json({mensaje:"Pedido creado"});
     })
+
+    
 
 router.put('/actualizar', (req,res) =>{
     const usuario = req.auth.user

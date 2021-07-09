@@ -17,7 +17,7 @@ class Producto{
 const producto1 = new Producto (1, "Bagel de Salmon", 425 );
 Productos.push(producto1);
 
-const producto2 = new Producto (2, "Hamburguesa Clásica", 350 );
+const producto2 = new Producto (2, "Hamburguesa Clasica", 350 );
 Productos.push(producto2);
 
 const producto3 = new Producto (3, "Sandwich veggie", 310 );
