@@ -19,9 +19,6 @@ const swaggeroptions = {
                     scheme: "basic"
                 }
             },
-            security: [{
-                basicAuth: []
-            }],
             schemas: {
                 Usuario:
                 {
@@ -103,6 +100,9 @@ const swaggeroptions = {
 
             }
         },
+        security: [{
+            basicAuth: []
+        }],
         tags: [{
             name: "Usuarios",
             description: "Ruta de registro y login de usuarios",
@@ -153,7 +153,7 @@ const swaggeroptions = {
                     },
                     
                     responses: {
-                        "201": {
+                        "200": {
                             description: "Usuario creado",
                             content: {
                                 "application/json": {
@@ -351,8 +351,8 @@ const swaggeroptions = {
                             examples: {
                                 "ejemplo 1": {
                                     value: {
-                                        nombre: "Arepa con huevo",
-                                        precio: "23000"
+                                        nombre: "cuchuco con espinazo",
+                                        precio: "25000"
 
                                     }
                                 }
@@ -641,7 +641,6 @@ const swaggeroptions = {
                 post:
                 {
                     tags: ["Pedidos"],
-                    security: [],
                     summary: "Creación de un pedido por parte del usuario",
                     description: "Creación de un pedido por parte del usuario",
                     requestBody: {
@@ -655,8 +654,7 @@ const swaggeroptions = {
                                 examples: {
                                     "ejemplo 1": {
                                         value: {
-                                            id: "2",
-                                            productosPedido: [{id: 1,
+                                            productos: [{id: 1,
                                                         cantidad:"3" },
                                                  {id: 3, "cantidad":"1"
                                                  }]
@@ -742,11 +740,145 @@ const swaggeroptions = {
                 }
 
             }, 
-            //"/pedidos/{id}/estado"{
-           //     put:{
+            "/pedidos/actualizar/{id}":
+            {
+                put:{
+                    tags: ["Pedidos"],
+                    summary: "Modificacion del estado de un pedido por parte del admin",
+                    description: "Modificacion del estado de un pedido por parte del admin",
+                    parameters:[
+                        {
+                            name: "id",
+                            in: "path",
+                            description: "id de pedido",
+                            required: "true",
+                            schema:{
+                                type: "number"
+                            },
+                            example : "2"
 
-          //      }
-           // }
+                        }
+                    ],
+                    requestBody: {
+                        description: "datos del producto",
+                        required: "true",
+                        content: {
+                            "application/json": {
+                                schema: {
+                                    $ref: '#/components/schemas/Producto'
+                                },
+                                examples: {
+                                    "ejemplo 1": {
+                                        value: {
+                                            estado:"Enviado"
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    responses: {
+                        "200": {
+                            description: "Pedido actualizado",
+                        },
+                        "400": {
+                            description: "Datos incorrectos",
+
+                        },
+                        "404": {
+                            description: "Pedido no encontrado",
+
+                        },
+                        "401": {
+                            description: "No esta autorizado",
+
+                        },
+                        "403": {
+                            description: "No tiene los permisos",
+                        }
+                    }
+             }
+            },"/pedidos/actualizar/confirmar":{
+                put:
+                {
+                    tags: ["Pedidos"],
+                    summary: "Confirmación del pedido por parte del usuario",
+                    description: " Confirmacion del pedido por parte del usuario",
+                    requestBody: {
+                        description: "datos del pedido",
+                        required: "true",
+                        content: {
+                            "application/json": {
+                                schema: {
+                                    $ref: '#/components/schemas/Pedidos'
+                                },
+                                
+                            }
+                        }
+                    },
+                    responses: {
+                        "200": {
+                            description: "Pedido confirmado",
+                        },
+                        "400": {
+                            description: "Datos incorrectos",
+
+                        },
+                        "404": {
+                            description: "Pedido no encontrado",
+
+                        },
+                        "401": {
+                            description: "No esta autorizado",
+
+                        },
+                        "403": {
+                            description: "No tiene los permisos",
+                        }
+                    }
+                }
+            }, "/pedidos/eliminar/{id}":{
+                delete:{
+                    tags: ["Pedidos"],
+                    summary: "Eliminación de un pedido",
+                    description: "Eliminación de pedido",
+                    parameters:[
+                        {
+                            name: "id",
+                            in: "path",
+                            description: "id del medio de pago",
+                            required: "true",
+                            schema:{
+                                type: "number"
+                            },
+                            example : "2"
+
+                        }
+                    ],
+                    responses: {
+                        "200": {
+                            description: "Pedido eliminado",
+                        },
+                        "400": {
+                            description: "id no encontrado",
+
+                        },
+                        "404": {
+                            description: "Pedido no eliminado",
+
+                        },
+                        "401": {
+                            description: "No esta autorizado",
+
+                        },
+                        "403": {
+                            description: "No tiene los permisos",
+                        }
+                    }
+                }
+
+            }
 
 
 

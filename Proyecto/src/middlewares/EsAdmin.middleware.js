@@ -9,7 +9,7 @@ const esAdministrador = (req,res,next) => {
         if (usuario.admin) {
             next();
         }else{
-            res.estatus(401).json('Usted no es Administrador');
+            res.status(401).json(mensaje="Usted no es Administrador");
         }
     }else{
         res.estatus(401).json('Usted no es Administrador');

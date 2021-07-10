@@ -14,7 +14,7 @@ router.post('/registro', (req,res) =>{
        }else{
         res.status(400).json({err:"Email ya registrado"})
        }
-        res.json({mensaje:"Usuario registrado"});
+        res.status(200).json({mensaje:"Usuario registrado"});
      }else{
         res.sendStatus(400);
      }

@@ -8,7 +8,8 @@ const { mostrarUsuarios } = require('../models/usuario.model');
 
 const verificacion = (nombre,contrasena) => {
 const usuarioEncontrado = mostrarUsuarios().find(u => u.nombre == nombre && u.contrasena == contrasena);
-console.log("absd");
+
+
 if (usuarioEncontrado) {
     return true;
 }   else{
