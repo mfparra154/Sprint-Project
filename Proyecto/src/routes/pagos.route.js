@@ -4,12 +4,11 @@ const esAdministrador = require("../middlewares/EsAdmin.middleware");
 const {mostrarMedios,
     agregarMedioPago,
     eliminarMedioPago,
-    nombreMedioPago
 } = require('../models/pagos.models')
 
 router.use(express.json());
 
-router.get('/mostrar', (req,res) => { res.json(mostrarMedios())});
+router.get('/mostrar', esAdministrador, (req,res) => { res.json(mostrarMedios())});
 
 router.post('/agregar', esAdministrador, (req,res) =>{
     const  {id,nombre} = req.body;
