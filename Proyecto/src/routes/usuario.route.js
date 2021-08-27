@@ -1,26 +1,11 @@
 const { Router } = require("express");
 const express = require("express");
 const router=express.Router();
-const { mostrarUsuarios, crearUsuarios} = require('../models/usuario.model');
+const {crearUsuarios} = require("../Controllers/usuario.controller")
+
 
 //No se usa use porque ya estamos dentro de la propia ruta
-router.post('/registro', (req,res) =>{
-     const {email,contrasena,nombre,usuario,telefono,direccion} = req.body;
-
-     if(email && contrasena && nombre && usuario && telefono && direccion){ 
-       const verificarEmail = mostrarUsuarios().find(u => u.email == email);
-       if (!verificarEmail) {
-        crearUsuarios(email,contrasena,nombre,usuario,telefono,direccion);
-       }else{
-        res.status(400).json({err:"Email ya registrado"})
-       }
-        res.status(200).json({mensaje:"Usuario registrado"});
-     }else{
-        res.sendStatus(400);
-     }
-     
-    }
-)
+router.post('/registro', crearUsuarios )
 
 router.post('/login', (req,res) => {
    const {email,contrasena} = req.body;

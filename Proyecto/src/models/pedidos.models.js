@@ -1,65 +1,53 @@
 const express = require("express");
 const app=express();
 app.use(express.json());
+const  mongoose  = require("mongoose");
 
-const { Usuarios, usuarioUsuarios } = require('../models/usuario.model');
-const { Productos, existeProducto,obtenerProducto} = require('../models/productos.models');
-const { MediosPago} = require('../models/pagos.models');
-
-
-const Pedidos = [
+const ProductosPedidoSchema =  new mongoose.Schema(
     {
-    id: 1,
-    Productos:[ {
-        "id": 1,
-        "nombre": "Bagel de Salmon",
-        "precio": 425,
-        "cantidad":"3"
+    nombre: {
+        type:String,
+        required: true
+    },
+    precio: {
+        type: Number,
+        required: true
+    },
+    cantidad: {
+        type: Number,
+        required: true
+    }
 
-    }],
-    usuario: "Admin", 
-    direccion: "Manzana b casa 8", 
-    medioPago: "efectivo", 
-    estado: "Pendiente",
-    precioTotal: 1275},
+    });
+
+    const PedidosSchema =  new mongoose.Schema({
+        productos: [ProductosPedidoSchema],
+        usuario: {
+            type:String,
+            required: true
+        },
+        direccion: {
+            type: String,
+            required: true
+        },
+        medioPago: {
+            type: String,
+            required: true
+        },
+        estado: {
+            type: String,
+            required: true
+        },
+        predioTotal: {
+            type: Number,
+            required: true
+        },
+    })
 
 
-    {    
-    id: 2,
-    Productos:[ {
-        "id": 2,
-        "nombre": "Hamburguesa Clásica",
-        "precio": 350,
-        "cantidad":"1"},
-    {
-        "id": 3,
-        "nombre": "Sandwich veggie",
-        "precio": 310,
-        "cantidad":"1"}
-    ],
-    
-    usuario: "Pepita", 
-    direccion: "Avenida siempre viva 123", 
-    medioPago: "paypal", 
-    estado: "Preparando",
-    precioTotal: 660,
-},
-{
-    id: 4,
-    productos:[ {
-        "id": 1,
-        "nombre": "Ensalada veggie",
-        "precio": 340,
-        "cantidad":"3"
 
-    }],
-    usuario: "Mafe", 
-    direccion: "Girardot", 
-    medioPago: "efectivo", 
-    estado: "Pendiente",
-    precioTotal: 340}
-    
-]
+
+
 
 function mostrarPedidos() {
     return Pedidos;
@@ -123,6 +111,4 @@ function precioTotal(listadeProductos) {
     return suma;
 }
 
-module.exports = {mostrarPedidos,agregarPedidos,modificarPedidos,eliminarPedidos,estadoPedido,ordenPendiente,agregarPedidos, modificarListaProductos,precioTotal} 
-
-
+module.exports = mongoose.model('pedidos', PedidosSchema);

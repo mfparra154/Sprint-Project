@@ -1,0 +1,23 @@
+###
+POST http://localhost:3000/productos/crear
+Content-Type: application/json
+
+{
+    "nombre": "Bagel",
+    "precio": 15000
+    
+}
+
+###
+GET http://localhost:3000/productos/mostrar
+
+
+###
+PUT http://localhost:3000/productos/actualizar/61182725c57f1035700edc83
+Content-Type: application/json
+
+{
+    "nombre": "Bagel de carne",
+    "precio": 10000
+    
+}
