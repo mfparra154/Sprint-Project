@@ -1,25 +1,17 @@
-const basicAuth = require('express-basic-auth');
-const express = require("express");
-const app=express();
-app.use(express.json());
-
-const { mostrarUsuarios } = require('../models/usuario.model');
+const expressJWT = require("express-jwt")
+const config = require("../utils/config")
 
 
-const verificacion = (nombre,contrasena) => {
-const usuarioEncontrado = mostrarUsuarios().find(u => u.nombre == nombre && u.contrasena == contrasena);
+const verificacion = expressJWT({
+    secret:config.Contrasenia,
+    algorithms: ["HS256"]
+}).unless({
+    path:["/usuarios"]
+})
 
-
-if (usuarioEncontrado) {
-    return true;
-}   else{
-    return false;
-} 
+const errorMiddleware = (err,req,res,next) => {
+    console.log(err);
+    res.status(401).json("Unauthorized")
 }
 
-
- //module.exports = verificacion;
-
- //verificar que lo que llega del requist.body este bien. Se comprueba la verificacion de existencia de producto, usuario, etc
- 
- module.exports = verificacion;
+module.exports = {verificacion,errorMiddleware}

@@ -1,8 +1,16 @@
 const mongoose = require ('mongoose');
+//const config = require('./config')
 
-(async () => {
-    await mongoose.connect('mongodb://localhost:27017/acamica2' , 
-  {useNewUrlParser: true, useUnifiedTopology: true});
 
-  console.log("Conectado a la BD");
+(async  () => {
+  try{
+    const config = require('./config');
+    await mongoose.connect(config.ConeccionDB, 
+    {useNewUrlParser: true, useUnifiedTopology: true});
+    console.log("Conectada a la base de datos");
+  } catch (error){
+    console.error ("No se conecto a la BD")
+  }
+   
+
 })();

@@ -5,14 +5,10 @@ const  mongoose  = require("mongoose");
 
 
 const direccionSchema = new mongoose.Schema({
-    nombre: {
-        type: String,
-        required: true
-    },
     direccion: {
         type: String,
         required: true
-    },
+    }
 });
 const UsuarioSchema =  new mongoose.Schema ({
 
@@ -36,14 +32,14 @@ const UsuarioSchema =  new mongoose.Schema ({
             type: Number,
             required: true
         },
-        direccion: [direccionSchema],
+        direcciones: [direccionSchema],
         admin: {
             type:Boolean,
             default: false
         },
         isActive: {
             type:Boolean,
-            default: false
+            default: true
         },
     });
 

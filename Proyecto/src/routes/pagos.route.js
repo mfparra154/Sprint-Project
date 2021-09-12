@@ -1,34 +1,16 @@
 const express = require("express");
 const router=express.Router();
 const esAdministrador = require("../middlewares/EsAdmin.middleware");
-const {mostrarMedios,
-    agregarMedioPago,
-    eliminarMedioPago,
-} = require('../models/pagos.models')
+const {mostrarMediosPago, crearMediosPago , eliminarMediosPago} = require("../Controllers/pagos.controller")
+const {validatePagoPost} = require("../middlewares/ValidarPost");
 
 router.use(express.json());
 
-router.get('/mostrar', esAdministrador, (req,res) => { res.json(mostrarMedios())});
+router.get('/mostrar', mostrarMediosPago);
 
-router.post('/agregar', esAdministrador, (req,res) =>{
-    const  {id,nombre} = req.body;
-    const  verificarmedio = mostrarMedios().find(u => u.nombre == nombre);
-    if(!verificarmedio){
-    res.json(agregarMedioPago(id,nombre))
-    }else{
-        res.status(400).json({err: "El medio ya existe"});
-    }
-} );
+router.post('/agregar', validatePagoPost, crearMediosPago );
 
-router.delete('/eliminar/:id', esAdministrador, (req,res) =>{
-    const  idMedioPago = req.params.id;
-    const  verificarmedio = mostrarMedios().find(u => u.id == idMedioPago)
-    if(verificarmedio){
-        res.json(eliminarMedioPago(idMedioPago))
-        }else{
-            res.status(400)
-        }
-    } );
+router.delete('/eliminar/:id', eliminarMediosPago  )
 
 
 module.exports = router;

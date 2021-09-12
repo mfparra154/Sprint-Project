@@ -1,0 +1,27 @@
+###
+POST http://localhost:3000/usuarios/registro
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "contrasena": "123456",
+    "nombre":  "Admin",
+    "usuario": "Admin",
+    "telefono": 3182612440,
+    "direccion": "ManzanaBCasa8Alicante1"
+    
+
+}
+
+###
+GET http://localhost:3000/usuarios/obtenerusuarios
+
+###
+POST http://localhost:3000/usuarios/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "contrasena": "123456"
+
+}

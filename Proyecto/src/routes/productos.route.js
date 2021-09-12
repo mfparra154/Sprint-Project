@@ -4,55 +4,29 @@ const router = express.Router();
 const productos = require("../models/productos.models")
 router.use(express.json());
 require('../utils/db');
-const { MostrarProductos, CrearProductos } = require("../Controllers/producto.controller")
+const { MostrarProductos, CrearProductos, ActualizarProductos, EliminarProductos } = require("../Controllers/producto.controller")
+const {validateProductPost} = require("../middlewares/ValidarPost")
+const cache = require("../middlewares/cache")
 
 
 
 
 
 //mostrar lista de productos
-router.get('/mostrar', MostrarProductos);
+router.get('/mostrar', cache, MostrarProductos);
 
 
 //agregar producto
 //router.post('/crear', esAdministrador,(req,res) =>{
-router.post('/crear', CrearProductos)
+router.post('/crear', esAdministrador,validateProductPost, CrearProductos)
 
 //Actualizar productos
 //router.put('/actualizar/:id', esAdministrador, (req,res) =>{
-router.put('/actualizar/:id', async (req, res) => {
-    const idProducto = req.params.id;
-    const { nombre, precio } = req.body;
-    const existeProducto = await productos.findById(idProducto)
-    if (existeProducto) {
-        existeProducto.nombre = nombre;
-        existeProducto.precio = precio;
-        existeProducto.save();
-        res.json(existeProducto);
-    } else {
-        res.sendStatus(400).json('Producto no encontrado');
-    }
-
-}
-)
+router.put('/actualizar/:id', validateProductPost, ActualizarProductos)
 
 //Eliminar productos
 
-router.delete('/eliminar/:id', esAdministrador, (req, res) => {
-    const idProducto = req.params.id;
-    if (parseInt(idProducto) != NaN) {
-        const productoExistente = mostrarProductos().findIndex(p => p.id == idProducto);
-        if (productoExistente >= 0) {
-            eliminarProducto(idProducto);
-            res.sendStatus(200);
-        } else {
-            res.sendStatus(404);
-        }
-    } else {
-        res.sendStatus(400);
-    }
-
-})
+router.delete('/eliminar/:id', EliminarProductos)
 
 
 

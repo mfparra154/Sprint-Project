@@ -1,19 +1,21 @@
 ###
 POST http://localhost:3000/productos/crear
 Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMTQ4NjQxOX0.gmLykDB7B4eu0-ZJ62Kj6zu6Nc8q52NB90fUI9BNpSo
 
 {
-    "nombre": "Bagel",
-    "precio": 15000
+    "nombre": "arepa de carne",
+    "precio": 5000
     
 }
 
 ###
 GET http://localhost:3000/productos/mostrar
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImlzYUBnbWFpbC5jb20iLCJpYXQiOjE2MzE0ODQ4MjR9.xJTRwgoXeZG3iK2yMg_noOMTtzeZl50U8fU-i2Zby7E
 
 
 ###
-PUT http://localhost:3000/productos/actualizar/61182725c57f1035700edc83
+PUT http://localhost:3000/productos/actualizar/613e4b4e57fcf5281040effe
 Content-Type: application/json
 
 {
@@ -21,3 +23,6 @@ Content-Type: application/json
     "precio": 10000
     
 }
+
+###
+DELETE  http://localhost:3000/productos/eliminar/613e4bdf0afd151360f3aacf
