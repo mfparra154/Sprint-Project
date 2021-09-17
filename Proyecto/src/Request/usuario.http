@@ -3,12 +3,12 @@ POST http://localhost:3000/usuarios/registro
 Content-Type: application/json
 
 {
-    "email": "admin@gmail.com",
-    "contrasena": "123456",
-    "nombre":  "Admin",
-    "usuario": "Admin",
-    "telefono": 3182612440,
-    "direccion": "ManzanaBCasa8Alicante1"
+    "email": "mario@gmail.com",
+    "contrasena": "890123",
+    "nombre":  "MarioManchego",
+    "usuario": "Mario",
+    "telefono": 3134586702,
+    "direccion": "Sahagun"
     
 
 }
@@ -24,4 +24,12 @@ Content-Type: application/json
     "email": "admin@gmail.com",
     "contrasena": "123456"
 
+}
+
+###
+POST http://localhost:3000/usuarios/anadirdirecciones/613e6156b06ae7435c3d92d1
+Content-Type: application/json
+
+{
+    "direccion": "AvenidaSiempreViva"
 }

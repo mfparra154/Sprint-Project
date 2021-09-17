@@ -14,15 +14,29 @@ const crearUsuarios = async (req,res) => {
             usuario,
             telefono
         });
+        console.log(nuevoUsuario);
         nuevoUsuario.direcciones.push({direccion})
         await nuevoUsuario.save();
         res.status(201).json("El usuario ha sido añadido")
     } catch (e){
-        console.log(e);
         res.status(500).json("Ha ocurrido un error")
-        console.log("pase por catch");
+      
     }
     
+}
+
+const anadirDireccion = async (req,res) => {
+    try{
+        const idUsuario = req.params.id;
+        const direccion = req.body;
+        const Usuario =  await usuarios.findById(idUsuario);
+        Usuario.direcciones.push(direccion)
+        await Usuario.save();
+        console.log(Usuario);
+        res.status(201).json("La direccion ha sido añadida")
+    } catch (e){
+        res.status(500).json("Ha ocurrido un error")
+    }
 }
 
 
@@ -61,4 +75,4 @@ const obtenerUsuarios = async (req,res) =>{
 
 
 
-module.exports = {crearUsuarios, loginUsuarios, obtenerUsuarios}
+module.exports = {crearUsuarios, loginUsuarios, obtenerUsuarios , anadirDireccion}

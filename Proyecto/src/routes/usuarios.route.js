@@ -1,6 +1,6 @@
 const express = require("express");
 const router=express.Router();
-const {crearUsuarios, loginUsuarios, obtenerUsuarios} = require("../Controllers/usuario.controller")
+const {crearUsuarios, loginUsuarios, obtenerUsuarios, anadirDireccion} = require("../Controllers/usuario.controller")
 const {validateRegisterPost} = require("../middlewares/ValidarPost")
 const {validateLoginPost} = require("../middlewares/ValidarPost")
 const validarUsuarioRegistrado = require("../middlewares/validarUsuarioRegistrado.middelware")
@@ -9,6 +9,8 @@ const validarUsuarioRegistrado = require("../middlewares/validarUsuarioRegistrad
 
 
 router.post('/registro', validateRegisterPost,  validarUsuarioRegistrado,  crearUsuarios )
+
+router.post('/anadirdirecciones/:id', anadirDireccion)
 
 router.post('/login', validateLoginPost,  loginUsuarios)
 

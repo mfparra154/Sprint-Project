@@ -21,13 +21,6 @@ router.use(express.json());
 router.get('/mostrar', esAdministrador, (req, res) => { res.json(mostrarPedidos()) });
 
 
-//mostrar pedido usuario
-router.get('/mipedido', (req, res) => {
-    const usuario = req.auth.user;
-    console.log(usuario);
-    res.json(mostrarPedidos().filter(o => o.usuario === usuario))
-
-})
 //agregarpedido,  
 router.post('/crear', (req, res) => {
     const { productos } = req.body;

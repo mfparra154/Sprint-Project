@@ -5,15 +5,15 @@ const  mongoose  = require("mongoose");
 
 const ProductosPedidoSchema =  new mongoose.Schema(
     {
-    nombre: {
+    nombreProducto: {
         type:String,
         required: true
     },
-    precio: {
+    precioProducto: {
         type: Number,
         required: true
     },
-    cantidad: {
+    cantidadProducto: {
         type: Number,
         required: true
     }
@@ -38,7 +38,7 @@ const ProductosPedidoSchema =  new mongoose.Schema(
             type: String,
             required: true
         },
-        predioTotal: {
+        preioTotal: {
             type: Number,
             required: true
         },
@@ -111,4 +111,4 @@ function precioTotal(listadeProductos) {
     return suma;
 }
 
-module.exports = mongoose.model('pedidos', PedidosSchema);
+module.exports = mongoose.model('pedidos', PedidosSchema, ProductosPedidoSchema);
