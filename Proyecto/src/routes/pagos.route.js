@@ -8,9 +8,9 @@ router.use(express.json());
 
 router.get('/mostrar', mostrarMediosPago);
 
-router.post('/agregar', validatePagoPost, crearMediosPago );
+router.post('/agregar',esAdministrador, validatePagoPost, crearMediosPago );
 
-router.delete('/eliminar/:id', eliminarMediosPago  )
+router.delete('/eliminar/:id', esAdministrador,  eliminarMediosPago  )
 
 
 module.exports = router;

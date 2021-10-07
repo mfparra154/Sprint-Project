@@ -4,7 +4,7 @@ const {crearUsuarios, loginUsuarios, obtenerUsuarios, anadirDireccion} = require
 const {validateRegisterPost} = require("../middlewares/ValidarPost")
 const {validateLoginPost} = require("../middlewares/ValidarPost")
 const validarUsuarioRegistrado = require("../middlewares/validarUsuarioRegistrado.middelware")
-
+const esAdministrador = require("../middlewares/EsAdmin.middleware");
 
 
 
@@ -14,7 +14,7 @@ router.post('/anadirdirecciones/:id', anadirDireccion)
 
 router.post('/login', validateLoginPost,  loginUsuarios)
 
-router.get('/obtenerusuarios', obtenerUsuarios)
+router.get('/obtenerusuarios', esAdministrador, obtenerUsuarios)
 
 
 module.exports = router;

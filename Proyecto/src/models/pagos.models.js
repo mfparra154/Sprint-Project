@@ -16,7 +16,6 @@ const PagosSchema =  new mongoose.Schema(
 
 
 
-
-module.exports = mongoose.model('mediosPago', PagosSchema);
+module.exports = mongoose.model('mediosPago', PagosSchema)
 
 

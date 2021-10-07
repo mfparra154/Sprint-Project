@@ -15,7 +15,7 @@ const swaggeroptions = require("./utils/swaggeroptions");
 
 const rutaProductos = require("./routes/productos.route");
 const rutaPagos = require("./routes/pagos.route");
-const rutaPedidos = require("./routes/pedidos.route");
+const rutaPedidos = require("./routes/pedidos.route")
 const rutaUsuarios =require("./routes/usuarios.route")
 
 const app=express();
@@ -39,7 +39,7 @@ app.use('/pedidos',rutaPedidos);
 
 
 app.listen(3000, () => {
-    console.log("Escuchando en el puerto 3000");
+  console.log("Escuchando en el puerto 3000");
 });
 
 module.exports = app;

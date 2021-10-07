@@ -1,0 +1,65 @@
+###
+GET http://localhost:3000/pedidos/mostrar
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk
+
+###
+POST http://localhost:3000/pedidos/crear
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk
+
+{
+    
+    "productos": [
+        {
+            "idProducto": "613e4b4e57fcf5281040effe"
+        },
+        {
+            "idProducto": "613e4c4d0afd151360f3aad8"
+        }
+    ],
+    "idDireccion": "613e8199259a2937a4e317a5"
+
+}
+
+
+
+###
+PUT  http://localhost:3000/pedidos/actualizar
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk
+
+{
+    
+    "productos": [
+        {
+            "idProducto": "613e826fb667b344f8e256b7"
+        },
+        {
+            "idProducto": "613e826fb667b344f8e256b7"
+        }
+    ],
+    "idDireccion": "613e8199259a2937a4e317a5",
+    "idMedioPago": "6148fa849b3f952a6067c1bc"
+
+}
+
+
+###
+PUT  http://localhost:3000/pedidos/actualizar/615b77493212e5145cc68058
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk
+
+{
+    "estado":"pendiente"
+}
+
+
+###
+PUT  http://localhost:3000/pedidos/confirmar
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk
+
+###
+DELETE   http://localhost:3000/pedidos/eliminar/615b77493212e5145cc68058
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk

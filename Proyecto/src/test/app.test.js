@@ -11,8 +11,7 @@ describe('Registro de usuario', () => {
     /**
      * Test registro de usuario
      */
-    describe('POST/registrar de forma exitosa', () => {
-        it('Debe devolver un 200 en status', (done) => {
+        it('Debe devolver un 201 en status', (done) => {
             const  newUsuario = {
                 "email": "test@test.com",
                 "contrasena": "test",
@@ -26,7 +25,7 @@ describe('Registro de usuario', () => {
                 .post('/usuarios/registro')
                 .send(newUsuario)
                 .end((err,response) => {
-                    response.should.have.status(200);
+                    response.should.have.status(201);
                     response.should.be.an('object');
                     done();
                 });
@@ -35,5 +34,4 @@ describe('Registro de usuario', () => {
         after ( async () => {
              await Usuario.deleteOne(email ='test@test.com');
         });
-    });
 });

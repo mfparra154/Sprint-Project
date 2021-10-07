@@ -1,0 +1,17 @@
+###
+GET http://localhost:3000/pagos/mostrar
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk
+
+###
+POST http://localhost:3000/pagos/agregar
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk
+
+{
+    "nombre": "Tranferencia internacional"
+}
+
+
+###
+DELETE  http://localhost:3000/pagos/eliminar/6149155793312e2f3c202716
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk

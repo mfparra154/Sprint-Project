@@ -4,6 +4,12 @@ const bcrypt = require("bcrypt");
 const config = require("../utils/config")
 const jwt = require("jsonwebtoken")
 
+
+async function traerUsuario(email) {
+     return await usuarios.findOne({email})
+    
+}
+
 const crearUsuarios = async (req,res) => {
     try{
         const {email,contrasena,nombre,usuario,telefono,direccion} = req.body;
@@ -75,4 +81,4 @@ const obtenerUsuarios = async (req,res) =>{
 
 
 
-module.exports = {crearUsuarios, loginUsuarios, obtenerUsuarios , anadirDireccion}
+module.exports = {crearUsuarios, loginUsuarios, obtenerUsuarios , anadirDireccion, traerUsuario}
