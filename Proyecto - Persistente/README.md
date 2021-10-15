@@ -12,7 +12,14 @@ Usage
 
 1. Ya teniendo abierto el proyecto en VSC, se abre una nueva terminal y se corre el comando: mongod
 
-2. Posteriormente, se procede a conectar el proyecto con la base de datos, en mi caso utilizaba Mongo compass. Es necesario tener redis instalado para usar la cache, el puerto por defecto es 6379. , si quieres correrlo desde otro debes modificar la variable de entorno en el documento .env .
+2. Posteriormente, se procede a conectar el proyecto con la base de datos, en mi caso utilizaba Mongo compass. Para hacer la conección con mongo compass es necesraio dar click 
+en la parte superior "Fill in connection fields individually" y poner los siguientes datos:
+
+Hostname:localhost
+Post:27017
+Authntication: none
+
+3.Es necesario tener redis instalado para usar la cache, el puerto por defecto es 6379. , si quieres correrlo desde otro debes modificar la variable de entorno en el documento .env .
 
 3. Después, se  ejecuta el proyecto con el comando:  npm run dev
  en la consola.  Se testea con el comando npm run test
