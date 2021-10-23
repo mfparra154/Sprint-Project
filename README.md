@@ -1,5 +1,5 @@
 # Sprint-Project
-PI Delilah Restó
+API Delilah Restó
 
 La API de delilah  restó - Persistentefacilita el proceso de pedidos por parte de los usuarios del restaurante. Además de otorgarle control al resturante sobre sus productos y pedidos.
 
@@ -24,6 +24,8 @@ Authntication: none
 
 3. Después, se  ejecuta el proyecto con el comando:  npm run dev
  en la consola.  Se testea con el comando npm run test
+
+ 4. Después de tener corriendo la API y conectada a la base de datos, se pueden hacer las pruebas de funcionamiento en los htttps en la carpeta request.
  
  Se entra a Swagger con el link localhost 
 http://localhost:3000/api-docs/
@@ -32,4 +34,6 @@ http://localhost:3000/api-docs/
 
 . Todas los endpoints o rutas funcionan para el Admin, dado que
 esta registrado como un usuario quien puede hacer pedidos.
+
+
 
