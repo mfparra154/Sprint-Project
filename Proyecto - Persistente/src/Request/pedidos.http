@@ -32,7 +32,7 @@ Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
     
     "productos": [
         {
-            "idProducto": "613e826fb667b344f8e256b7"
+            "idProducto": "613e4c4d0afd151360f3aad8"
         },
         {
             "idProducto": "613e826fb667b344f8e256b7"
@@ -45,12 +45,12 @@ Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
 
 
 ###
-PUT  http://localhost:3000/pedidos/actualizar/615b77493212e5145cc68058
+PUT  http://localhost:3000/pedidos/actualizar/616249562c6e784295911783
 Content-Type: application/json
 Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk
 
 {
-    "estado":"pendiente"
+    "estado":"recibido"
 }
 
 
@@ -60,6 +60,6 @@ Content-Type: application/json
 Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk
 
 ###
-DELETE   http://localhost:3000/pedidos/eliminar/615b77493212e5145cc68058
+DELETE   http://localhost:3000/pedidos/eliminar/616249562c6e784295911783
 Content-Type: application/json
 Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMjE3Mjc1Mn0.u9jSBEp-NQm4XwssHKgkP5sF9DFUNWYdnmDucwr74Yk

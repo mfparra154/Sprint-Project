@@ -4,8 +4,8 @@ Content-Type: application/json
 Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTYzMTQ4NjQxOX0.gmLykDB7B4eu0-ZJ62Kj6zu6Nc8q52NB90fUI9BNpSo
 
 {
-    "nombre": "arepa de carne",
-    "precio": 5000
+    "nombre": "Burrito mixto",
+    "precio": 10000
     
 }
 
@@ -25,4 +25,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE  http://localhost:3000/productos/eliminar/613e4bdf0afd151360f3aacf
+DELETE  http://localhost:3000/productos/eliminar/613e4b4e57fcf5281040effe

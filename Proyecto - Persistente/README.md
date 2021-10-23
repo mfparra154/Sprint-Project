@@ -23,6 +23,8 @@ Authntication: none
 
 3. Después, se  ejecuta el proyecto con el comando:  npm run dev
  en la consola.  Se testea con el comando npm run test
+
+ 4. Después de tener corriendo la API y conectada a la base de datos, se pueden hacer las pruebas de funcionamiento en los htttps en la carpeta request.
  
  Se entra a Swagger con el link localhost 
 http://localhost:3000/api-docs/
