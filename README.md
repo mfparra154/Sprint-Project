@@ -35,5 +35,3 @@ http://localhost:3000/api-docs/
 . Todas los endpoints o rutas funcionan para el Admin, dado que
 esta registrado como un usuario quien puede hacer pedidos.
 
-
-
